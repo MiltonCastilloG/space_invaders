@@ -1,0 +1,22 @@
+.title {
+    text-align: center;
+    padding: 5px;  
+}
+.frame {
+    margin: auto;
+    width: 70vw;
+    height: 80vh;
+    border: 3px solid #73AD21;
+    padding: 10px;
+}
+.movement-frame {
+    height: 95%;
+    border: 3px solid blue;
+}
+.frame {
+    margin: auto;
+    width: 70vw;
+    height: 80vh;
+    border: 3px solid #73AD21;
+    padding: 10px;
+}
