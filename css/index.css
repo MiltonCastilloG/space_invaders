@@ -9,9 +9,35 @@
     border: 3px solid #73AD21;
     padding: 10px;
 }
+.enemy-frame{
+    height: 70%;
+    border: 3px solid grey;
+    width: 100%;
+}
+.wall-frame{
+    height: 20%;
+    border: 3px solid red;
+    bottom: 0;
+    width: 100%;
+}
+.wall{
+    background-color: green;
+    width:11%;
+    margin-left: 7%;
+    margin-right: 7%;
+    height:100%;
+    float: left;
+}
+.wall-part{
+    background-color: grey;
+    width:25%;
+    height: 25%;
+    float: left;
+}
 .movement-frame {
-    height: 95%;
+    height: 5%;
     border: 3px solid blue;
+    width: 100%;
 }
 .frame {
     margin: auto;
@@ -21,9 +47,9 @@
     padding: 10px;
 }
 #bullets_enemies{
-            height: 768px;
-            width: 1364px;
-            position: absolute;
+    height: 768px;
+    width: 1364px;
+    position: absolute;
 }
 .bullet_player{
     background-image: url('Resources/player_bullet.png');
