@@ -10,7 +10,8 @@
     padding: 10px;
 }
 .movement-frame {
-    height: 95%;
+    height: 5%;
+    width: 100%;
     border: 3px solid blue;
 }
 .frame {
@@ -41,4 +42,29 @@
     height: 30px;
     width: 16px;
     position: absolute;
+}
+.wall-frame{
+    height: 20%;
+    border: 3px solid red;
+    bottom: 0;
+    width: 100%;
+}
+.wall{
+    background-color: green;
+    width: 11%;
+    float: left;
+    height: 100%;
+    margin-left: 7%;
+    margin-right: 7%
+}
+.wall-part{
+    background-color: gray;
+    width: 25%;
+    height: 25%;
+    float: left;
+}
+.enemy-frame{
+    height: 70%;
+    border: 3px solid grey;
+    width: 100%;
 }
