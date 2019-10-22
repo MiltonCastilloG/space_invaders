@@ -34,6 +34,9 @@
     height: 25%;
     float: left;
 }
+.destroyed{
+    background-color: transparent;
+}
 .movement-frame {
     height: 5%;
     border: 3px solid blue;
