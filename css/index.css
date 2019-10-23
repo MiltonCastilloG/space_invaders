@@ -57,7 +57,8 @@
     margin-right: 7%
 }
 .wall-part{
-    background-image: url();
+    background-image: url('../resources/wallPixel.png');
+    background-size: 100% 100%;
     width: 25%;
     height: 25%;
     float: left;
