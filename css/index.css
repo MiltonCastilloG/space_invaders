@@ -6,22 +6,19 @@
     margin: auto;
     width: 70vw;
     height: 80vh;
-    border: 3px solid #73AD21;
-    padding: 10px;
+    background-image: url('../img/background.jpg');
+    background-size: 100% 100%;
 }
 .enemy-frame{
-    height: 70%;
-    border: 3px solid grey;
+    height: 74%;
     width: 100%;
 }
 .wall-frame{
     height: 20%;
-    border: 3px solid red;
     bottom: 0;
     width: 100%;
 }
 .wall{
-    background-color: green;
     width:11%;
     margin-left: 7%;
     margin-right: 7%;
@@ -39,15 +36,14 @@
 }
 .movement-frame {
     height: 5%;
-    border: 3px solid blue;
+    border-bottom: 1px solid green;
     width: 100%;
 }
-.frame {
-    margin: auto;
-    width: 70vw;
-    height: 80vh;
-    border: 3px solid #73AD21;
-    padding: 10px;
+.player {
+    width: 5%;
+    height: 100%;
+    background-image: url("../img/player.png");
+    background-size: 100% 100%;
 }
 #bullets_enemies{
     height: 768px;

@@ -4,7 +4,6 @@
 <link rel="stylesheet" type="text/css" href="css/index.css">
 </head>
 <body>
-
 <div> 
     <h2 class="title">Space Invaders</h2>
 </div>
@@ -16,25 +15,20 @@
         <div class="wall"></div>
         <div class="wall"></div>
     </div>
-    <div class="movement-frame"></div>
+    <div class="movement-frame">
+    </div>
     <!--Player moves right above the end line-->
 </div>
-//No se para que usas el fram pero estos divs tienen que estar dentro de background
+<!--
 <div id="background">
 		<div id="bullets_player"></div>
 		<div id="bullets_enemies"></div>
 </div>
-<script src="./js/walls.js">
-</script>
-<script>
-construct_walls();
-document.querySelectorAll(".destructable").forEach((elem)=>{
-    console.log(elem.getBoundingClientRect())
-    if(elem.getBoundingClientRect().x<300){
-        destroy_wall(elem)
-    };
-
-})
-</script>
+-->
+<script src="./js/settings.js"></script>
+<script src="./js/player.js"></script>
+<script src="./js/enemies.js"></script>
+<script src="./js/walls.js"></script>
+<script src="./js/init_game.js"></script>  
 </body>
 </html>

@@ -69,6 +69,13 @@ function move_player_bullets(){
 	}
 }
 
+const construct_player_bullet = (top, center) => {
+
+}
+const construct_enemy_bullet = (bottom, center) => {
+
+}
+
 function gameLoop(){
 	setTimeout(gameLoop, bullets_speed)
 	move_player_bullets();

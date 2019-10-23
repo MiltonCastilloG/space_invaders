@@ -2,14 +2,13 @@ const destroy_enemy = () => {
 
 }
 
-const construct_enemies = (speed) => {
+const construct_enemies = () => {
 	
 }
 
-const construct_enemy_bullet = () => {
-
-}
-
+/*
+BE SURE TO CALL construct_enemy_bullet(bottom, center) of enemies
+*/
 const move_enemies = setInterval(()=>{
 
-}, speed)
+}, enemy_speed)

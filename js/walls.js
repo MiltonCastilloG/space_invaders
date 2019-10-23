@@ -2,7 +2,7 @@ const destroy_wall = (elem) => {
     elem.className="wall-part destroyed";
 }
 
-const construct_walls = () => {
+const construct_walls = (resistance) => {
     const blocksPerColumn = 4;
     const blocksPerRow = 4;
     document.querySelectorAll(".wall").forEach((elem)=>{
