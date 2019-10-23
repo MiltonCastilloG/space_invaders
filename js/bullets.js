@@ -59,6 +59,7 @@ function draw_player_bullets(){
 			player_bullets.shift();
 		}
 
+		enemy_bullet[bullet].top = enemy_bullet[bullet].top + 5;
 	}
 }
 

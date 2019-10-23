@@ -39,6 +39,7 @@
     border-bottom: 1px solid green;
     width: 100%;
 }
+<<<<<<< HEAD
 .player {
     width: 5%;
     height: 100%;
@@ -52,6 +53,23 @@
 }
 .bullet_player{
     background-image: url('Resources/player_bullet.png');
+=======
+.frame {
+    margin: auto;
+    width: 70vw;
+    height: 80vh;
+    border: 3px solid #73AD21;
+    padding: 10px;
+}
+
+#bullets_enemies{
+            height: 768px;
+            width: 1364px;
+            position: absolute;
+}
+.bullet_player{
+    background-image: url('resources/player_bullet.png');
+>>>>>>> 421d7af59137f8f643f18d842217b75e5757052b
     height: 25px;
     width: 19px;
     position: absolute;
@@ -62,7 +80,11 @@
     position: absolute;
 }
 .bullet_enemies{
+<<<<<<< HEAD
     background-image: url('Resources/enemies_bullet.png');
+=======
+    background-image: url('resources/enemies_bullet.png');
+>>>>>>> 421d7af59137f8f643f18d842217b75e5757052b
     height: 30px;
     width: 16px;
     position: absolute;
