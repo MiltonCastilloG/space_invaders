@@ -1,0 +1,56 @@
+.title {
+    text-align: center;
+    padding: 5px;  
+}
+.frame {
+    margin: auto;
+    width: 70vw;
+    height: 80vh;
+    border: 3px solid #73AD21;
+    padding: 10px;
+}
+.movement-frame {
+    height: 95%;
+    border: 3px solid blue;
+}
+.frame {
+    margin: auto;
+    width: 70vw;
+    height: 80vh;
+    border: 3px solid #73AD21;
+    padding: 10px;
+}
+#bullets_enemies{
+            height: 768px;
+            width: 1364px;
+            position: absolute;
+}
+.bullet_player{
+    background-image: url('Resources/player_bullet.png');
+    height: 25px;
+    width: 19px;
+    position: absolute;
+}
+#bullets_player{
+    height: 768px;
+    width: 1364px;
+    position: absolute;
+}
+.bullet_enemies{
+    background-image: url('Resources/enemies_bullet.png');
+    height: 30px;
+    width: 16px;
+    position: absolute;
+}
+#enemies{
+    height: 100%;
+    position:relative;
+}
+.enemies_character{
+    margin-left: auto;
+    margin-top: auto;
+    background-image: url('../resources/enemy.png');
+    height: 30px;
+    width: 40px;
+    position: absolute;
+}
