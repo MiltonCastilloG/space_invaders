@@ -4,7 +4,6 @@
 	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="css/index.css">
 	<script type="text/javascript" src="js/bullets.js"></script>
-	//El script deberia ser todos en el mismo para solo llamar a un file js
 	
 </head>
 <body>
@@ -13,6 +12,9 @@
 </div>
 <div class="frame">
     <div class="enemy-frame"></div>
+        <div id="enemies"></div>
+    <div id="bullets_player"></div>
+    <div id="bullets_enemies"></div>
     <div class="wall-frame">
         <div class="wall"></div>
         <div class="wall"></div>
@@ -23,12 +25,7 @@
     </div>
     <!--Player moves right above the end line-->
 </div>
-<!--
-<div id="background">
-		<div id="bullets_player"></div>
-		<div id="bullets_enemies"></div>
-</div>
--->
+		
 <script src="./js/settings.js"></script>
 <script src="./js/player.js"></script>
 <script src="./js/enemies.js"></script>

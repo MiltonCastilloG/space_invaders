@@ -1,6 +1,7 @@
 const player_bullets = [];
 const enemy_bullets = [];
 
+//Draw functions
 function draw_enemy_bullets(){
 	document.getElementById('enemy_bullets').innerHTML ="";
 	for( const bullet = 0; bullet < enemy_bullets.length; bullet=bullet+1){
@@ -11,13 +12,6 @@ function draw_enemy_bullets(){
 			document.getElementById('enemy_bullets').innerHTML="";
 			enemy_bullets.shift();
 		}
-	}
-}
-
-function move_enemy_bullets(){
-	for( const bullet = 0; bullet < enemy_bullets.length; bullet=bullet+1){
-
-		enemy_bullets[bullet].top = enemy_bullets[bullet].top + 5;
 	}
 }
 
@@ -36,26 +30,39 @@ function draw_player_bullets(){
 	}
 }
 
+//Movement functions
 function move_player_bullets(){
-	for( const bullet = 0; bullet < player_bullets.length; bullet=bullet+1){
-		
+	for(const bullet = 0;bullet<=player_bullets.length;bullet=bullet+1){
 		player_bullets[bullet].top = player_bullets[bullet].top - 5;
-	}
+	} 
 }
 
-function construct_player_bullet = (top, center) => {
+function move_enemy_bullets(){
+	for(const bullet = 0;bullet<=enemy_bullets.length;bullet=bullet+1){
+		enemy_bullets[bullet].top = enemy_bullets[bullet].top + 5;
+	} 
+
+	
+}
+
+//Called function from player
+function construct_player_bullet(top, center){
 	player_bullets.push({
 			center: center,
 			top: top
 	})
 }
-function construct_enemy_bullet = (bottom, center) => {
+
+//Called function from enemies
+function construct_enemy_bullet(bottom, center){
 	enemy_bullets.push({
 			center: center,
 			top: top
 	})
 }
 
+//Time loop for redraw the movement
+/*
 function gameLoop(){
 	setTimeout(gameLoop, bullets_speed)
 	move_player_bullets();
@@ -64,3 +71,4 @@ function gameLoop(){
 	draw_enemy_bullets();
 	collisionCheck();
 }
+*/
