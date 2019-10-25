@@ -2,37 +2,11 @@ var player_bullets = [];
 var enemy_bullets = [];
 var bullets_speed=100;
 
-document.onkeydown = function(e){
-	console.log(e.keyCode);
-
-	if(e.keyCode==32) {
-		player_bullets.push({
-			//left: player_left + 19,
-			//top: player_top
-			left:700,
-			top:700
-		})
-
-		//De momento en el espacio, son de los enemigos
-		enemy_bullets.push({
-			//left: enemy_left + 19,
-			//top: enemy_top
-			left:700,
-			top:100
-		})
-		console.log(player_bullets);
-		console.log(enemy_bullets);
-		//draw_bullet();
-		gameLoop();
-	}
-}
-
-
 function draw_enemy_bullets(){
 	document.getElementById('enemy_bullets').innerHTML ="";
 	for( var bullet = 0; bullet < enemy_bullets.length; bullet=bullet+1){
 		if(enemy_bullets[bullet].top < 743){
-			document.getElementById('enemy_bullets').innerHTML += `<div class='bullet_enemies' style='left:${enemy_bullets[bullet].left}px; top:${enemy_bullets[bullet].top}px;'></div>`;
+			document.getElementById('enemy_bullets').innerHTML += `<div class='bullet_enemies' style='center:${enemy_bullets[bullet].center}px; top:${enemy_bullets[bullet].top}px;'></div>`;
 		}
 		else{
 			document.getElementById('enemy_bullets').innerHTML="";
@@ -52,7 +26,7 @@ function draw_player_bullets(){
 	document.getElementById('player_bullets').innerHTML ="";
 	for( var bullet = 0; bullet < player_bullets.length; bullet=bullet+1){
 		if(player_bullets[bullet].top > 0){
-			document.getElementById('player_bullets').innerHTML += `<div class='bullet_player' style='left:${player_bullets[bullet].left}px; top:${player_bullets[bullet].top}px;'></div>`;
+			document.getElementById('player_bullets').innerHTML += `<div class='bullet_player' style='center:${player_bullets[bullet].center}px; top:${player_bullets[bullet].top}px;'></div>`;
 		}
 		else{
 			document.getElementById('player_bullets').innerHTML="";
@@ -71,10 +45,16 @@ function move_player_bullets(){
 }
 
 const construct_player_bullet = (top, center) => {
-
+	player_bullets.push({
+			center: center,
+			top: top
+	})
 }
 const construct_enemy_bullet = (bottom, center) => {
-
+	enemy_bullets.push({
+			center: center,
+			top: top
+	})
 }
 
 function gameLoop(){
@@ -83,5 +63,5 @@ function gameLoop(){
 	draw_player_bullets();
 	move_enemy_bullets();
 	draw_enemy_bullets();
-	//collisionCheck();
+	collisionCheck();
 }
