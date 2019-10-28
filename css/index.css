@@ -31,7 +31,7 @@
     width: 100%;
 }
 
-.player {
+.player{
     height: 100%;
     background-image: url("../img/player.png");
     background-size: 100% 100%;
@@ -41,11 +41,6 @@
     background-size: 100% 100%;
     float: left;
 }
-#bullets_enemies{
-    height: 768px;
-    width: 1364px;
-    position: absolute;
-}
 .frame {
     margin: auto;
     width: 60vw;
@@ -53,22 +48,11 @@
     background-image: url('../img/background.jpg');
     background-size: 100% 100%;
 }
-
-#bullets_enemies{
-    height: 768px;
-    width: 1364px;
-    position: absolute;
-}
 .bullet_player{
     background-image: url('../img/player_bullet.png');
     position: absolute;
 }
-#bullets_player{
-    height: 768px;
-    width: 1364px;
-    position: absolute;
-}
 .bullet_enemies{
-    background-image: url('resources/enemies_bullet.png');
+    background-image: url('../img/enemies_bullet.png');
     position: absolute;
 }

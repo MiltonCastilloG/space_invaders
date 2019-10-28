@@ -1,20 +1,3 @@
-var player_bullets = [];
-var enemy_bullets = [];
-
-//Draw functions
-function draw_enemy_bullets(){
-	document.getElementById('enemy_bullets').innerHTML ="";
-	for( const bullet = 0; bullet < enemy_bullets.length; bullet=bullet+1){
-		if(enemy_bullets[bullet].top < 743){
-			document.getElementById('enemy_bullets').innerHTML += `<div class='bullet_enemies' style='center:${enemy_bullets[bullet].center}px; top:${enemy_bullets[bullet].top}px;'></div>`;
-		}
-		else{
-			document.getElementById('enemy_bullets').innerHTML="";
-			enemy_bullets.shift();
-		}
-	}
-}
-
 const movePlayerBullet = () =>{
 	const bullet = document.querySelector(".bullet_player");
 	if(bullet !== null){
@@ -34,10 +17,11 @@ function moveEnemyBullets(){
 	if(bullets.length != 0){
 		bullets.forEach((bullet)=>{
 			const bullet_bound = bullet.getBoundingClientRect();
+			console.log(bullet_bound)
 			const next_pos = bullet_bound.top + bullet_bound.height;
-			if(checkCollision(next_pos, bullet_bound))
+			if(checkEnemyBulletCollision(next_pos, bullet_bound))
 				bullet.parentNode.removeChild(bullet);
-			else if(next_pos+bullet_bound.height<GAME_BORDER_BOTTOM)
+			else if(next_pos>GAME_BORDER_BOTTOM)
 				bullet.parentNode.removeChild(bullet);
 			else
 				bullet.style.top = next_pos.toString() +"px";
@@ -54,9 +38,13 @@ const constructPlayerBullet = (top, center) => {
 
 //Called function from enemies
 function constructEnemyBullet(top, center){
-	document.querySelector('.frame').innerHTML += `<div class='bullet_enemy' style='top:${top+ENEMY_HEIGHT}px; left:${center-BULLET_WIDTH_PX}px; width:${BULLET_WIDTH}%; height:${BULLET_HEIGHT}%;'></div>`;
+	const newDiv = document.createElement("div");
+	newDiv.style.cssText = `top:${top+BULLET_HEIGHT}px; right:${center-BULLET_WIDTH_PX}px; width:${BULLET_WIDTH}%; height:${BULLET_HEIGHT}%; position: absolute; background-image: url('./img/enemies_bullet.png');`; 
+    newDiv.className = "bullet_enemy";
+	document.querySelector('.frame').appendChild(newDiv);
 }
 
 const gameLoop = setInterval(()=>{
 	movePlayerBullet();
+	moveEnemyBullets();
 }, 50);

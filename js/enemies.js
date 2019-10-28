@@ -1,5 +1,12 @@
 let direction = "right";
 
+const move_enemies = setInterval(()=>{
+    moveAllEnemies(false);
+    const chance = Math.random();
+    if(chance<ENEMY_SHOOTING_CHANCE)
+        enemyShooting();
+}, ENEMY_SPEED)
+
 function moveAllEnemies(move_down){
     //document.querySelector(".enemy-row").style.marginLeft="5%";
     const enemy_pos = document.querySelector(".enemy-row").style;
@@ -22,7 +29,10 @@ function moveAllEnemies(move_down){
         if(move_down){
             const down_movement = parseFloat(enemy_pos.paddingTop) + ENEMY_STEP_DOWN;
             enemy_pos.paddingTop = down_movement.toString()+"%";
-            checkEnemyColision();
+            if(checkEnemyColision()){
+                clearInterval(move_enemies);
+                alert("HAS PERDIDO");
+            }
         }
     }
 }
@@ -35,7 +45,7 @@ const constructEnemies = () => {
     const total_blocks = ENEMY_NUMBER_COLUMN * ENEMY_NUMBER_ROW;
     const frame = document.querySelector(".uppart-frame");
     const row = document.createElement("div");
-    row.style.cssText = `width:${ENEMY_NUMBER_ROW*ENEMY_WIDTH}%; height:${ENEMY_HEIGHT}%; margin-left: 1%; padding-top: 1%;`; 
+    row.style.cssText = `width:${ENEMY_NUMBER_ROW*ENEMY_WIDTH}%; height:${ENEMY_HEIGHT}%; margin-left: 1%; padding-top: 1%; z-index:99`; 
     row.className = "enemy-row";
     frame.appendChild(row);
     for(let i = 0; i<total_blocks; i++){
@@ -44,15 +54,14 @@ const constructEnemies = () => {
         newDiv.className = "enemy enemy-destructable";  
         row.appendChild(newDiv);
     }
-
-	//document.getElementById('enemies').innerHTML += "<div id='enemy"+id+"' class='enemies_character' style='left:"+positionX+"px;top: "+positionY+"px' ></div>";
 }
 
-const constructEnemyBullet = () => {
-
+const enemyShooting = () => {
+    const enemies = document.querySelectorAll(".enemy-destructable");
+    const individual = Math.ceil(Math.random()*enemies.length) - 1;
+    const enemy_pos = enemies[individual].getBoundingClientRect();
+    const enemy_center= enemy_pos.left+(enemy_pos.width/2);
+    constructEnemyBullet(enemy_pos.y,enemy_center);
 }
 
 
-const move_enemies = setInterval(()=>{
-    moveAllEnemies(false);
-}, ENEMY_SPEED)

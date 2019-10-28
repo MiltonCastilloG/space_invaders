@@ -5,6 +5,7 @@ const GAME_BORDER_BOTTOM = GAME_BORDER_TOP+GAME_SCREEN.height;
 const GAME_SPEED = 50; //in ms
 
 const ENEMY_SPEED = 500; // in ms
+const ENEMY_SHOOTING_CHANCE = 0.2;
 const ENEMY_STEP = 2.5; // in ms
 const ENEMY_STEP_DOWN = 1; // in ms
 const ENEMY_NUMBER_ROW = 10; // in ms
