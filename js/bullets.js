@@ -15,7 +15,7 @@ function draw_enemy_bullets(){
 	}
 }
 
-const movePlayerBullets = () =>{
+const movePlayerBullet = () =>{
 	const bullet = document.querySelector(".bullet_player");
 	if(bullet !== null){
 		const bullet_bound = bullet.getBoundingClientRect();
@@ -53,18 +53,10 @@ const constructPlayerBullet = (top, center) => {
 }
 
 //Called function from enemies
-function construct_enemy_bullet(bottom, center){
-	document.querySelector('.frame').innerHTML += `<div class='enemy_player' style='bottom:${bottom}px; left:${center-BULLET_WIDTH_PX}px; width:${BULLET_WIDTH}%; height:${BULLET_HEIGHT}%;'></div>`;
+function constructEnemyBullet(top, center){
+	document.querySelector('.frame').innerHTML += `<div class='bullet_enemy' style='top:${top+ENEMY_HEIGHT}px; left:${center-BULLET_WIDTH_PX}px; width:${BULLET_WIDTH}%; height:${BULLET_HEIGHT}%;'></div>`;
 }
 
-//Time loop for redraw the movement
-// function gameLoop(){
-// 	console.log("sfs")
-// 	move_player_bullets();
-// 	// move_enemy_bullets();
-// 	// draw_enemy_bullets();
-// 	// collisionCheck();
-// }
 const gameLoop = setInterval(()=>{
-	movePlayerBullets();
+	movePlayerBullet();
 }, 50);
