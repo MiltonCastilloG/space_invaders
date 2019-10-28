@@ -2,10 +2,15 @@ var player_bullets = [];
 var enemy_bullets = [];
 
 //Draw functions
+
+/*
+*This function is called for clean and draw the bullets from enemies
+*@param not used
+*/
 function draw_enemy_bullets(){
 	document.getElementById('enemy_bullets').innerHTML ="";
 	for( const bullet = 0; bullet < enemy_bullets.length; bullet=bullet+1){
-		if(enemy_bullets[bullet].top < 743){
+		if(enemy_bullets[bullet].top < GAME_BORDER_BOTTOM){
 			document.getElementById('enemy_bullets').innerHTML += `<div class='bullet_enemies' style='center:${enemy_bullets[bullet].center}px; top:${enemy_bullets[bullet].top}px;'></div>`;
 		}
 		else{
@@ -15,6 +20,11 @@ function draw_enemy_bullets(){
 	}
 }
 
+
+/*
+*This const is used to move the bullet 
+*@param not used
+*/
 const movePlayerBullets = () =>{
 	const bullet = document.querySelector(".bullet_player");
 	if(bullet !== null){
@@ -29,6 +39,11 @@ const movePlayerBullets = () =>{
 	}
 }
 
+
+/*
+*This function is called to move the bullet from enemies and check the collision
+*@param not used
+*/
 function moveEnemyBullets(){
 	const bullets = document.querySelectorAll(".bullet_enemy");
 	if(bullets.length != 0){
@@ -45,14 +60,14 @@ function moveEnemyBullets(){
 	}
 }
 
-//Called function from player
+//Called const from player to draw the bullet
 const constructPlayerBullet = (top, center) => {
 	const bullet = document.querySelector(".bullet_player");
 	if(bullet==null)
 		document.querySelector('.frame').innerHTML += `<div class='bullet_player' style='top:${top}px; left:${center-BULLET_WIDTH_PX}px; width:${BULLET_WIDTH}%; height:${BULLET_HEIGHT}%;'></div>`;
 }
 
-//Called function from enemies
+//Called function from enemies to draw the bullet
 function construct_enemy_bullet(bottom, center){
 	document.querySelector('.frame').innerHTML += `<div class='enemy_player' style='bottom:${bottom}px; left:${center-BULLET_WIDTH_PX}px; width:${BULLET_WIDTH}%; height:${BULLET_HEIGHT}%;'></div>`;
 }
