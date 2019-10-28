@@ -1,15 +1,17 @@
-const destroy_wall = (elem) => {
+const destroyWall = (elem) => {
     elem.className="wall-part destroyed";
 }
 
-const construct_walls = (resistance) => {
-    const blocksPerColumn = 4;
-    const blocksPerRow = 4;
+const constructWall = () => {
+    const blocks_width = 100/WALL_BLOCKS_COLUMNS;
+    const blocks_height = 100/WALL_BLOCKS_ROWS;
+    const total_blocks = WALL_BLOCKS_COLUMNS * WALL_BLOCKS_ROWS;
     document.querySelectorAll(".wall").forEach((elem)=>{
-        for(let i=0; i<4*4; i++){
+        for(let i=0; i<total_blocks; i++){
             const newDiv = document.createElement("div")
-            newDiv.className = "wall-part destructable";
-            elem.appendChild(newDiv)
+            newDiv.style.cssText = `width: ${blocks_width}%; height: ${blocks_height}%`; 
+            newDiv.className = "wall-part wall-destructable";
+            elem.appendChild(newDiv);
         }
     });
 }

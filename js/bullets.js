@@ -1,5 +1,5 @@
-const player_bullets = [];
-const enemy_bullets = [];
+var player_bullets = [];
+var enemy_bullets = [];
 
 //Draw functions
 function draw_enemy_bullets(){
@@ -15,60 +15,56 @@ function draw_enemy_bullets(){
 	}
 }
 
-function draw_player_bullets(){
-	document.getElementById('player_bullets').innerHTML ="";
-	for( const bullet = 0; bullet < player_bullets.length; bullet=bullet+1){
-		if(player_bullets[bullet].top > 0){
-			document.getElementById('player_bullets').innerHTML += `<div class='bullet_player' style='center:${player_bullets[bullet].center}px; top:${player_bullets[bullet].top}px;'></div>`;
-		}
-		else{
-			document.getElementById('player_bullets').innerHTML="";
-			player_bullets.shift();
-		}
-
-		enemy_bullet[bullet].top = enemy_bullet[bullet].top + 5;
+const movePlayerBullets = () =>{
+	const bullet = document.querySelector(".bullet_player");
+	if(bullet !== null){
+		const bullet_bound = bullet.getBoundingClientRect();
+		const next_pos = bullet_bound.top - bullet_bound.height;
+		if(checkCollision(next_pos, bullet_bound))
+			bullet.parentNode.removeChild(bullet);
+		else if(next_pos-bullet_bound.height<GAME_BORDER_TOP)
+			bullet.parentNode.removeChild(bullet);
+		else
+			bullet.style.top = next_pos.toString() +"px";
 	}
 }
 
-//Movement functions
-function move_player_bullets(){
-	for(const bullet = 0;bullet<=player_bullets.length;bullet=bullet+1){
-		player_bullets[bullet].top = player_bullets[bullet].top - 5;
-	} 
-}
-
-function move_enemy_bullets(){
-	for(const bullet = 0;bullet<=enemy_bullets.length;bullet=bullet+1){
-		enemy_bullets[bullet].top = enemy_bullets[bullet].top + 5;
-	} 
-
-	
+function moveEnemyBullets(){
+	const bullets = document.querySelectorAll(".bullet_enemy");
+	if(bullets.length != 0){
+		bullets.forEach((bullet)=>{
+			const bullet_bound = bullet.getBoundingClientRect();
+			const next_pos = bullet_bound.top + bullet_bound.height;
+			if(checkCollision(next_pos, bullet_bound))
+				bullet.parentNode.removeChild(bullet);
+			else if(next_pos+bullet_bound.height<GAME_BORDER_BOTTOM)
+				bullet.parentNode.removeChild(bullet);
+			else
+				bullet.style.top = next_pos.toString() +"px";
+		});
+	}
 }
 
 //Called function from player
-function construct_player_bullet(top, center){
-	player_bullets.push({
-			center: center,
-			top: top
-	})
+const constructPlayerBullet = (top, center) => {
+	const bullet = document.querySelector(".bullet_player");
+	if(bullet==null)
+		document.querySelector('.frame').innerHTML += `<div class='bullet_player' style='top:${top}px; left:${center-BULLET_WIDTH_PX}px; width:${BULLET_WIDTH}%; height:${BULLET_HEIGHT}%;'></div>`;
 }
 
 //Called function from enemies
 function construct_enemy_bullet(bottom, center){
-	enemy_bullets.push({
-			center: center,
-			top: top
-	})
+	document.querySelector('.frame').innerHTML += `<div class='enemy_player' style='bottom:${bottom}px; left:${center-BULLET_WIDTH_PX}px; width:${BULLET_WIDTH}%; height:${BULLET_HEIGHT}%;'></div>`;
 }
 
 //Time loop for redraw the movement
-/*
-function gameLoop(){
-	setTimeout(gameLoop, bullets_speed)
-	move_player_bullets();
-	draw_player_bullets();
-	move_enemy_bullets();
-	draw_enemy_bullets();
-	collisionCheck();
-}
-*/
+// function gameLoop(){
+// 	console.log("sfs")
+// 	move_player_bullets();
+// 	// move_enemy_bullets();
+// 	// draw_enemy_bullets();
+// 	// collisionCheck();
+// }
+const gameLoop = setInterval(()=>{
+	movePlayerBullets();
+}, 50);
